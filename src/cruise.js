@@ -1,7 +1,3 @@
-//function Port(name) {
-//    this.name = name,
-//}
-
 function Ship(name, portName) {
     this.name = name,
     this.startingPort = portName

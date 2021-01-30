@@ -1,4 +1,5 @@
 const Ship = require('../src/cruise.js');
+const Port = require('../src/port');
 
 describe('ship constructor', () => {
     it('ship should be an instance of object', () => {
@@ -16,15 +17,14 @@ describe('ship sail', () => {
     });
 });
 
-//describe('dock from different port', () => {
-//    test('can dock at a different port', () => {
-//        const ship = new Ship('Dover');
-//        const calais = new Port('Calais');
-//        ship.dock(calais);
-//
-//        expect(ship.startingPort).toBe(calais);
-//    });
-//});
+describe('dock method from port', () => {
+    const dover = new Port('Dover');
+    const ship = new Ship(dover);
+    const calais = new Port('Calais');
+    ship.dock(calais);
+
+        expect(ship.startingPort).toBe(calais);
+});
 
     
 
