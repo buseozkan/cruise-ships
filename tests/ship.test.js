@@ -19,7 +19,8 @@ describe('Ship with starting port', () => {
 
 describe('ship sail', () => {
     test('can set sail', () => {
-        const ship = new Ship('Dover');
+        let port;
+        const ship = new Ship(port);
         ship.setSail();
 
     expect(ship.startingPort).toBeFalsy();
