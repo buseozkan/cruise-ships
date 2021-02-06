@@ -1,4 +1,5 @@
 const Ship = require('../src/cruise');
+const Port = require('../src/Port');
 
 describe('ship constructor', () => {
     test('ship should be an instance of object', () => {
@@ -10,8 +11,9 @@ describe('ship constructor', () => {
 
 describe('Ship with starting port', () => {
     test('has a starting port', () => {
-        const ship = new Ship('Dover');
-        expect(ship.startingPort).toBe('Dover');
+        let port;
+        const ship = new Ship(port);
+        expect(ship.startingPort).toBe(port);
     });
 });
 
