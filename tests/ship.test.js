@@ -22,7 +22,7 @@ describe('ship sail', () => {
         let port;
         const ship = new Ship(port);
         ship.setSail();
-
+    expect(ship.previousPort).toBe(port);
     expect(ship.startingPort).toBeFalsy();
     });
 });
@@ -33,5 +33,6 @@ describe('can dock at a different port', () => {
     const calais = new Port('Calais');
     ship.dock(calais);
     expect(ship.startingPort).toBe(calais);
-})
+});
+
 

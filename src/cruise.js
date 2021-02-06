@@ -6,7 +6,9 @@ function Ship(name, port) {
 }
 
 Ship.prototype.setSail = function() {
-    this.startingPort = 0; // falsy
+   // this.startingPort = 0; // falsy
+    this.previousPort = this.startingPort;
+    this.startingPort = null;
 }    
 
 Ship.prototype.dock = function (port) {
