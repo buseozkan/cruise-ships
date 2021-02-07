@@ -4,6 +4,7 @@ function Ship(itinerary) {
     this.previousPort = null;
 
     this.startingPort.addShip(this);
+    
 }
 
 Ship.prototype.setSail = function() {

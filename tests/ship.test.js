@@ -35,16 +35,17 @@ describe('ship sail', () => {
     });
 });
 
-/*describe('can dock at a different port', () => {
+describe('can dock at a different port', () => {
     const dover = new Port('Dover');
     const calais = new Port('Calais');
     const itinerary = new Itinerary([dover, calais]);
     const ship = new Ship(itinerary);
-    ship.dock();
     ship.setSail();
-    expect(ship.startingPort).toBe(itinerary);
+    ship.dock();
+    expect(ship.startingPort).toBe(calais);
+    expect(calais.ships).toContain(ship);
 });
-*/
+
 
 describe('setsail method throws an error', () => {
     it('can\'t sail further than its itinerary', () => {
