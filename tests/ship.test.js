@@ -1,11 +1,13 @@
 const Ship = require('../src/cruise');
 const Port = require('../src/Port');
-const Itinerary = require('../src/Itinerary');
+const Itinerary = require('../src/itinerary');
 
 describe('ship constructor', () => {
     test('ship should be an instance of object', () => {
-        const ship = new Ship('Dover Port');
-        expect(new Ship('Dover Port')).toBeInstanceOf(Object);
+        const port = new Port('Dover');
+        const itinerary = new Itinerary([port]);
+        const ship = new Ship(itinerary);
+        expect(ship).toBeInstanceOf(Object);
     });
 
 });
@@ -21,8 +23,11 @@ describe('Ship with starting port', () => {
 
 describe('ship sail', () => {
     test('can set sail', () => {
-        let port;
-        const itinerary = new Itinerary([port]);
+        const dover = new Port('Dover');
+        const calais = new Port('Calais');
+        const itinerary = new Itinerary([dover, calais]);
+//        let port;
+//        const itinerary = new Itinerary([port]);
         const ship = new Ship(itinerary);
         ship.setSail();
     //expect(ship.previousPort).toBe(port);
@@ -30,12 +35,25 @@ describe('ship sail', () => {
     });
 });
 
-describe('can dock at a different port', () => {
+/*describe('can dock at a different port', () => {
     const dover = new Port('Dover');
-    const ship = new Ship(dover);
     const calais = new Port('Calais');
-    ship.dock(calais);
-    expect(ship.startingPort).toBe(calais);
+    const itinerary = new Itinerary([dover, calais]);
+    const ship = new Ship(itinerary);
+    ship.dock();
+    ship.setSail();
+    expect(ship.startingPort).toBe(itinerary);
 });
+*/
 
-
+describe('setsail method throws an error', () => {
+    it('can\'t sail further than its itinerary', () => {
+        const dover = new Port('Dover');
+        const calais = new Port('Calais');
+        const itinerary = new Itinerary([dover, calais]);
+        const ship = new Ship(itinerary);
+        ship.setSail();
+        ship.dock();
+        expect(() => ship.setSail()).toThrowError('End of itinerary reached');
+    });
+});
