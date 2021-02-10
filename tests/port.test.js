@@ -17,7 +17,7 @@ describe('name property', () => {
 describe('should add new ship', () => {
     it('add a ship', () => {
         const port = new Port('Dover');
-        const ship = {};
+        const ship = jest.fn();
         port.addShip(ship);
         expect(port.ships).toContain(ship);
     });
@@ -26,8 +26,8 @@ describe('should add new ship', () => {
 describe('should remove a ship', () => {
     it('can remove a ship', () => {
         const port = new Port('Dover');
-        const east = {};
-        const west = {};
+        const east = jest.fn();
+        const west = jest.fn();
 
         port.addShip(east);
         port.addShip(west);
