@@ -14,7 +14,7 @@ describe('ship constructor', () => {
 
 describe('Ship with starting port', () => {
     test('has a starting port', () => {
-        let port;
+        const port = new Port('Dover');
         const itinerary = new Itinerary([port]);
         const ship = new Ship(itinerary);
         expect(ship.startingPort).toBe(port);
@@ -32,6 +32,7 @@ describe('ship sail', () => {
         ship.setSail();
     //expect(ship.previousPort).toBe(port);
     expect(ship.startingPort).toBeFalsy();
+    expect(dover.ships).not.toContain(ship);
     });
 });
 
