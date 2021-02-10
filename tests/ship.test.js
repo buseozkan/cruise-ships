@@ -2,6 +2,7 @@ const Ship = require('../src/cruise');
 const Port = require('../src/Port');
 const Itinerary = require('../src/itinerary');
 
+
 describe('ship constructor', () => {
     test('ship should be an instance of object', () => {
         const port = new Port('Dover');
@@ -33,6 +34,7 @@ describe('ship sail', () => {
     //expect(ship.previousPort).toBe(port);
     expect(ship.startingPort).toBeFalsy();
     expect(dover.ships).not.toContain(ship);
+
     });
 });
 
